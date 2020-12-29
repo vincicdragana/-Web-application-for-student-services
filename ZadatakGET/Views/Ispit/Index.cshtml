@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ZadatakGET.Models.Ispit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Ispiti</h2>
+
+<form asp-controller="Ispit" asp-action="Index">
+    <p>
+        Naziv predmeta: <input type="text" name="naziv" />
+        <input type="submit" class="button button1" value="Pretrazi" />
+    </p>
+</form>
+
+<p>
+    @Html.ActionLink("Novi ispit", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Predmet
+        </th>
+        <th>
+            Student
+        </th>
+        <th>
+            Broj indeksa
+        </th>
+        <th>
+            Ocena
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Predmet.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Ime)
+
+                @Html.DisplayFor(modelItem => item.Student.Prezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.BI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oena)
+            </td>
+            <td>
+                <button class="button"> @Html.ActionLink("Izmeni ocenu", "Edit", new { BI = item.BI, PredmetId = item.PredmetId })</button>
+                <button class="button">@Html.ActionLink("Detalji", "Details", new { BI = item.BI, PredmetId = item.PredmetId })</button>
+                <button class="button"> @Html.ActionLink("Izbrisi", "Delete", new { BI = item.BI, PredmetId = item.PredmetId })</button>
+            </td>
+        </tr>
+    }
+</table>

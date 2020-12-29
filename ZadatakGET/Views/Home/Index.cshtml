@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Fakultet organizacionih nauka</h1>
+    <p class="lead">Ovde se nalaze podaci o studenatima i ispitima fakulteta organizacionih nauka. </p>
+
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-3 mb-md-0">
+        <div class="item">
+            <h2>@Html.ActionLink("Studenti", "Index", "Student")</h2>
+            <p>
+                Dodavanje, brisanje i detalji studenata.
+            </p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="item">
+            <h2>@Html.ActionLink("Ispiti", "Index", "Ispit")</h2>
+            <p>Dodavanje, brisanje i detalji ispita.</p>
+        </div>
+    </div>
+</div>

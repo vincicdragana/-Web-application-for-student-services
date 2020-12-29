@@ -1,0 +1,41 @@
+﻿@model ZadatakGET.Models.Ispit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalji</h2>
+
+<div>
+    <h4>Ispit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Predmet.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Predmet.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.Ime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Ime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oena)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Nazad na listu ispita", "Index")
+</p>

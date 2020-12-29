@@ -1,0 +1,48 @@
+﻿@model ZadatakGET.Models.Ispit
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Brisanje ispita</h2>
+
+<h3>Da li ste sigurni da zelite da izbrisete ovaj ispit?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Predmet.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Predmet.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.Ime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Ime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oena)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Izbrisi" class="button button1" /> |
+            @Html.ActionLink("Nazad na listu ispita", "Index")
+        </div>
+    }
+</div>

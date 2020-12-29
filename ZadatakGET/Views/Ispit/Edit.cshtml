@@ -1,0 +1,46 @@
+﻿@model ZadatakGET.Models.Ispit
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Izmena ocene</h2>
+<h4>Student:  @Html.DisplayFor(model => model.Student.Ime)  @Html.DisplayFor(model => model.Student.Prezime)</h4>
+<h5>Broj indeksa: @Html.DisplayFor(model => model.BI)</h5>
+<h4>Predmet: @Html.DisplayFor(model => model.Predmet.Naziv)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Ispit</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.BI)
+
+        @Html.HiddenFor(model => model.PredmetId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Oena, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Oena, new { htmlAttributes = new { @class = "form-control", @min = "6", @max = "10" } })
+                @Html.ValidationMessageFor(model => model.Oena, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="button button1" value="Save" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Nazad na listu ispita", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

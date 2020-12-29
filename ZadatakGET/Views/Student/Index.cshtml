@@ -1,0 +1,96 @@
+﻿@model IEnumerable<ZadatakGET.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Studenti</h2>
+
+<form asp-controller="Student" asp-action="Index">
+    <p>
+        Broj indeksa: <input type="number" name="BI" />
+        <input type="submit" class="button button1" value="Pretrazi" />
+    </p>
+</form>
+
+<p>
+    @Html.ActionLink("Novi student", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th class="name" style="width:30%">
+            Ime i prezime
+        </th>
+        <th>
+            Broj indeksa
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grad)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a class="link-name" data-toggle="collapse" href="#ucenik-@item.BI.ToString()" role="button" aria-expanded="false" aria-controls="ucenik-@item.BI.ToString()">
+                    @item.Ime @item.Prezime
+                </a>
+                <div class="collapse" id="ucenik-@item.BI.ToString()">
+                    <div class="py-3">
+                        <table style="width:100%">
+                            <tr>
+                                <td>Predmet</td>
+                                <td class="marks text-center">Ocena</td>
+                            </tr>
+                            @if (item.IspitiStudent.Count > 0)
+                            {
+                                foreach (var it in item.IspitiStudent)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => it.Predmet.Naziv)
+                                        </td>
+                                        <td class="marks text-center">
+                                            @Html.DisplayFor(modelItem => it.Oena)
+                                        </td>
+                                        <td>
+                                            <button class="button">@Html.ActionLink("Izbrisi", "DeleteIspit", new { BI = it.BI, PredmetId = it.PredmetId })</button>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td> / </td>
+                                    <td class="marks text-center"> / </td>
+                                </tr>
+                             }
+                        </table>
+                    </div>
+                </div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grad)
+            </td>
+            <td>
+                <button class="button">@Html.ActionLink("Izmeni", "Edit", new { id = item.BI })<</button>
+                <button class="button">@Html.ActionLink("Detalji", "Details", new { id = item.BI })</button>
+                <button class="button"> @Html.ActionLink("Izbrisi", "Delete", new { id = item.BI })</button>
+            </td>
+        </tr>
+    }
+
+</table>

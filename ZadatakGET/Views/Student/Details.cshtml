@@ -1,0 +1,57 @@
+﻿@model ZadatakGET.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalji</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Broj indeksa
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prezime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prezime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grad)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Nazad na listu studenata", "Index")
+</p>

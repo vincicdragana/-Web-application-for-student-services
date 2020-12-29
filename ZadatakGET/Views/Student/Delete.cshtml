@@ -1,0 +1,76 @@
+﻿@model ZadatakGET.Models.Student
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+@if (TempData["testmsg"] != null)
+{
+    @*<script type="text/javascript">
+       alert("@TempData["testmsg"]");
+    </script>*@
+    <div class="alert alert-danger">
+        <strong>Student ima ispite!</strong> Nije moguce izbrisati studenta koji ima ispite.
+    </div>
+}
+
+<h2>Brisanje studenta  @Html.DisplayFor(model => model.Ime)  @Html.DisplayFor(model => model.Prezime)</h2>
+
+<h4>Broj indeksa: @Html.DisplayFor(model => model.BI)</h4>
+
+<h3>Da li ste sigurni da zelite da izbrisete ovog studenta?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Broj indeksa
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prezime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prezime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grad)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Izbrisi" class="button button1" /> |
+            @Html.ActionLink("Nazad na listu studenata", "Index")
+        </div>
+    }
+</div>

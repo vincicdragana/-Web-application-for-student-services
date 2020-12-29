@@ -1,0 +1,88 @@
+﻿@font-face {
+    font-family: "Roboto", sans-serif src: url("fontovi/Roboto-Light.ttf");
+}
+
+body {
+    background-image: url(fon.jpg) !important;
+    background-siye: cover !important;
+    background-repeat: no-repeat;
+    /*background-position: center;*/
+}
+
+p {
+    font-family: "Roboto-Light";
+    font-siye: 16px;
+}
+
+.jumbotron {
+    background-color: transparent !important;
+    margin-left: -55px;
+    margin-top: 10px;
+}
+
+h1 {
+    font-family: "Roboto";
+    font-weight: bold;
+    color: #101010 !important;
+    font-style: italic;
+}
+
+.pocetna a {
+    color: #122b26;
+    font-family: "Roboto";
+    font-weight: 600;
+}
+
+    .pocetna a:hover {
+        font-size: 32px;
+        color: #101010;
+    }
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #101010
+}
+
+.div-footer {
+    margin-top: 130px;
+}
+
+.button {
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #4169E1;
+}
+
+    .button1:hover {
+        background-color: #4169E1;
+        color: white;
+    }
+
+/*.button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid #00008B;
+}
+
+    .button2:hover {
+        background-color: #FAEBD7;
+        color: white;
+    }*/
+
+{
+    align-content: center;
+}
+
